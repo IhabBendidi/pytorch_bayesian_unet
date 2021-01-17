@@ -107,7 +107,7 @@ def preprocess_test(out_dir, temp_dir=None):
 
 if __name__ == '__main__':
 
-    out_dir = '/content/pytorch_bayesian_unet/examples/cellular_segmentation/preprocessed'
+    out_dir = './preprocessed'
 
     preprocess_train(out_dir)
     preprocess_test(out_dir)
