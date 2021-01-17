@@ -237,7 +237,7 @@ def get_dataset(data_root,
                 normalizer=None,
                 augmentor=None):
 
-    class_list = ['background', 'instrument']
+    class_list = ['background', 'cell']
     dtypes = OrderedDict({'image': np.float32, 'label': np.int64})
 
     getter = partial(ImageDataset, root=data_root, classes=class_list,
@@ -247,8 +247,8 @@ def get_dataset(data_root,
     train_patients = ['OP1', 'OP2', 'OP3', 'OP4']
 
     train_filenames = OrderedDict({
-        'image': '{root}/train/{patient}/Raw/*_raw.png',
-        'label': '{root}/train/{patient}/Masks/*_class.png',
+        'image': '{root}/train/*_raw.png',
+        'label': '{root}/train/*_class.png',
     })
 
     if valid_split_type == 'slice':
@@ -268,8 +268,8 @@ def get_dataset(data_root,
 
     # test dataset
     test_filenames = OrderedDict({
-        'image': '{root}/test/{patient}/*_raw.png',
-        'label': '{root}/test/{patient}/*_class.png',
+        'image': '{root}/test/*_raw.png',
+        'label': '{root}/test/*_class.png',
     })
 
     test_patients = ['OP*'] # NOTE: wildcard
