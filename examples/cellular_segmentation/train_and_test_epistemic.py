@@ -244,7 +244,7 @@ def get_dataset(data_root,
                         dtypes=dtypes, normalizer=normalizer)
 
     # train and valid dataset
-    train_patients = ['OP1']
+    train_patients = []
 
     train_filenames = OrderedDict({
         'image': '{root}/train/{patient}/*_raw.png',
