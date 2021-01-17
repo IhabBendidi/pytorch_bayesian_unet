@@ -244,11 +244,11 @@ def get_dataset(data_root,
                         dtypes=dtypes, normalizer=normalizer)
 
     # train and valid dataset
-    train_patients = ['OP1', 'OP2', 'OP3', 'OP4']
+    train_patients = ['OP1']
 
     train_filenames = OrderedDict({
-        'image': '{root}/train/*_raw.png',
-        'label': '{root}/train/*_class.png',
+        'image': '{root}/train/{patient}/*_raw.png',
+        'label': '{root}/train/{patient}/*_class.png',
     })
 
     if valid_split_type == 'slice':
@@ -268,8 +268,8 @@ def get_dataset(data_root,
 
     # test dataset
     test_filenames = OrderedDict({
-        'image': '{root}/test/*_raw.png',
-        'label': '{root}/test/*_class.png',
+        'image': '{root}/test/{patient}/*_raw.png',
+        'label': '{root}/test/{patient}/*_class.png',
     })
 
     test_patients = ['OP*'] # NOTE: wildcard
