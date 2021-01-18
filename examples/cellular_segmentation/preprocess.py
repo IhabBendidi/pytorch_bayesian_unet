@@ -72,11 +72,9 @@ def preprocess_labels(files, out_dir, binary=True):
 
         dst = np.zeros(src.shape, src.dtype)
 
-        if binary:
-            dst[src!=0] = 1
-        else:
-            dst[src== 70] = 1
-            dst[src==160] = 2
+        dst[src==255] = 1
+        dst[src!=255] = 0
+
 
         cv2.imwrite(out, dst)
 
